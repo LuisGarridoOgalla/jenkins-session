@@ -1,7 +1,7 @@
 pipeline{
     agent any
 
-    enviorenment{
+    environment{
         DEMO = '1.3'
     }
 
