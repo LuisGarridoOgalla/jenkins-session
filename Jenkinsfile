@@ -1,11 +1,11 @@
 pipeline{
     agent any
 
-    enviornment{
+    enviorenment{
         DEMO = '1.3'
     }
 
-    stage{
+    stages{
         stage('stage-1'){
             steps{
                 echo "this is the build number $BUILD_NUMBER of demo $DEMO"
