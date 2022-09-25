@@ -25,7 +25,13 @@ pipeline{
             }
         }
         stage(' Unit Test'){
-        
+         steps{
+                dir('./01/solution'){
+                    sh '''
+                    npm test
+                    '''
+                }
+            }
         }
          stage('Publish'){
             when{
