@@ -11,8 +11,9 @@ pipeline{
 
     stages{
         stage('Audit tools'){
-          auditTool()
-            
+            steps{
+                auditTool()
+            }
         }
         stage('build'){
             environment{
@@ -58,9 +59,9 @@ String getVersionSuffix(){
 }
 void auditTool(){
 sh '''
-                git version
-                docker version
-                node --version
-                npm version
-                '''  
+    git version
+    docker version
+    node --version
+    npm version
+'''  
 }
