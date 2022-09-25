@@ -11,9 +11,8 @@ pipeline{
 
     stages{
         stage('build'){
-              environment{
+            environment{
                 VERSION_SUFFIX = sh(script: 'if [ "${param.RC}" == "true"]; then echo -n "${VERSION_RC}+ci.${BUILD_NUMBER}"; else echo -n "${VERSION_RC}"; fi', returnStdout: true).trim()
-                VERSION_RC = 'rc.2'
             }
             steps{
                 dir('./01/solution'){
@@ -26,13 +25,7 @@ pipeline{
             }
         }
         stage(' Unit Test'){
-            steps{
-                dir('./01/solution'){
-                    sh '''
-                    npm test
-                    '''
-                }
-            }
+        
         }
          stage('Publish'){
             when{
@@ -42,6 +35,7 @@ pipeline{
             }
             steps{
                archiveAtifacts('01/solution/app')
-        }
-    }
+            }
+         }
+    }    
 }
