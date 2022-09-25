@@ -25,11 +25,11 @@ pipeline{
                 message 'Deploy? '
                 ok 'Do it'
                 parameters{
-                    string(name: 'TARGET_ENVIRONMENT', defaultValue: 'PROD', desciption: 'Target deployment environmeent')
+                    string(name: 'TARGET_ENVIRONMENT', defaultValue: 'PROD', description: 'Target deployment environmeent')
                 }
             }
             steps{
-                echo "DEployment release ${RELEASE} to ${TARGET_ENVIRONMENT}"
+                echo "Deployment release ${RELEASE} to ${TARGET_ENVIRONMENT}"
             }
         }
     }
