@@ -12,7 +12,7 @@ pipeline{
     stages{
         stage('build'){
               environment{
-                VERSION_SUFFIX = sh(script: 'if [ "${param.RC} == "true"]; then echo -n "${VERSION_RC}+ci.${BUILD_NUMBER}"; else echo -n "${VERSION_RC}"; fi', returnStdout: true).trim()
+                VERSION_SUFFIX = sh(script: 'if [ "${param.RC}" == "true"]; then echo -n "${VERSION_RC}+ci.${BUILD_NUMBER}"; else echo -n "${VERSION_RC}"; fi', returnStdout: true).trim()
                 VERSION_RC = 'rc.2'
             }
             steps{
