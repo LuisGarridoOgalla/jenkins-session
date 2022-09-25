@@ -11,9 +11,6 @@ pipeline{
 
     stages{
         stage('Audit tools'){
-            environment{
-                VERSION_SUFFIX = sh(script: 'if [ "${RC}" == "true"]; then echo -n "${VERSION_RC}+ci.${BUILD_NUMBER}"; else echo -n "${VERSION_RC}"; fi', returnStdout: true).trim()
-            }
             steps{
             
                 sh '''
@@ -24,6 +21,7 @@ pipeline{
                 '''
                 
             }
+        }
         stage('build'){
             environment{
                 VERSION_SUFFIX = sh(script: 'if [ "${RC}" == "true"]; then echo -n "${VERSION_RC}+ci.${BUILD_NUMBER}"; else echo -n "${VERSION_RC}"; fi', returnStdout: true).trim()
