@@ -1,4 +1,4 @@
-library identifier: 'jenkins-session-library@main', retriever: modernSCM([$class: 'GitSMCSource', remote:'https://github.com/LuisGarridoOgalla/jenkins-session-library.git'])
+library identifier: 'jenkins-session-library@main', retriever: modernSCM([$class: 'GitSCMSource', remote:'https://github.com/LuisGarridoOgalla/jenkins-session-library.git'])
 pipeline{
     agent any
 
